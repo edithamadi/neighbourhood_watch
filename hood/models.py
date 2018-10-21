@@ -1,5 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
+
+from django.db.models.signals import post_save
 # Create your models here.
 class Neighbourhood(models.Model):
     name = models.CharField(max_length = 100)
@@ -117,3 +119,24 @@ class Comment(models.Model):
     user = models.ForeignKey(User)
     post = models.ForeignKey(Post)
 
+    def __str__(self):
+        return self.comments
+
+    def save_comment(self):
+        self.save()
+
+    def delete_comment(self):
+        self.delete()
+
+class Location(models.Model):
+    name = models.CharField(max_length=50)
+
+    def __str__(self):
+        return self.name
+
+    def save_location(self):
+        self.save()
+
+    def delete_location(self):
+        self.delete()
+    
