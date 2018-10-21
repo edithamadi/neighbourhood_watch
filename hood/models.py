@@ -32,6 +32,11 @@ class Neighbourhood(models.Model):
         hoods = cls.objects.filter(id=id).create(id=id)
         return hoods
 
+    @classmethod
+    def find_hood(cls, id):
+        hoods = cls.objects.filter(id=id).find(id=id)
+        return hoods
+
 
 
 
