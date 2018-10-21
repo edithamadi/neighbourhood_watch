@@ -33,3 +33,9 @@ class Post(models.Model):
     description = models.TextField(max_length=350)
     hood = models.ForeignKey(Neighbourhood, blank=True,on_delete=models.CASCADE)
     title = models.CharField(max_length = 50)
+
+class Comment(models.Model):
+    comments = models.CharField(max_length = 500)
+    user = models.ForeignKey(User)
+    post = models.ForeignKey(Post)
+
