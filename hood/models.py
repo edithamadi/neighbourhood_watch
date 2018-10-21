@@ -71,6 +71,11 @@ class Business(models.Model):
     def find_businesses(cls, id):
         businesses = cls.objects.filter(id=id).find(id=id)
         return businesses
+
+    @classmethod
+    def update_businesses(cls, id):
+        businesses = cls.objects.filter(id=id).update(id=id)
+        return businesses
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     first_name = models.CharField(max_length=30)
