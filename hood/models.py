@@ -9,6 +9,12 @@ class Neighbourhood(models.Model):
         ('Mombasa', 'Mombasa'),
         ('Eldoret', 'Eldoret'),
     ]
-    local  = models.CharField(max_length=00, choices=location)
+    local  = models.CharField(max_length=100, choices=location)
     occupants = models.PositiveIntegerField()
     user = models.ForeignKey(User, on_delete=models.CASCADE)
+
+class Business(models.Model):
+    name = models.CharField(max_length = 100)
+    user = models.ForeignKey(User)
+    hood = models.ForeignKey(Neighbourhood,blank=True)
+    email = models.CharField(max_length=150)
