@@ -5,12 +5,12 @@ from django.db.models.signals import post_save
 # Create your models here.
 class Neighbourhood(models.Model):
     name = models.CharField(max_length = 100)
-    location = [
+    location = (
         ('Nairobi', 'Nairobi'),
         ('Kisumu', 'Kisumu'),
         ('Mombasa', 'Mombasa'),
         ('Eldoret', 'Eldoret'),
-    ]
+    )
     locale  = models.CharField(max_length=100, choices=location)
     occupants = models.PositiveIntegerField()
     user = models.ForeignKey(User, on_delete=models.CASCADE)
