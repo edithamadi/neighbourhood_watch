@@ -47,14 +47,16 @@ class Neighbourhood(models.Model):
         hoods = cls.objects.filter(id=id).update_occupants(id=id)
         return hoods
 
-
-
-
 class Business(models.Model):
     name = models.CharField(max_length = 100)
     user = models.ForeignKey(User)
     hood = models.ForeignKey(Neighbourhood,blank=True)
     email = models.CharField(max_length=150)
+    @classmethod
+    def search_businesses(cls, search_term):
+        businesses = cls.objects.filter(business_name__icontains=search_term)
+        return businesses
+
 
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
