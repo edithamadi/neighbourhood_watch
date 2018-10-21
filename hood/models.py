@@ -52,6 +52,16 @@ class Business(models.Model):
     user = models.ForeignKey(User)
     hood = models.ForeignKey(Neighbourhood,blank=True)
     email = models.CharField(max_length=150)
+
+    def __str__(self):
+        return f"{self.locale}"
+
+    def save_hood(self):
+        self.save()
+
+    def delete_hood(self):
+        self.delete()
+
     @classmethod
     def search_businesses(cls, search_term):
         businesses = cls.objects.filter(business_name__icontains=search_term)
