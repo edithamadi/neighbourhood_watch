@@ -9,9 +9,22 @@ class Neighbourhood(models.Model):
         ('Mombasa', 'Mombasa'),
         ('Eldoret', 'Eldoret'),
     ]
-    local  = models.CharField(max_length=100, choices=location)
+    locale  = models.CharField(max_length=100, choices=location)
     occupants = models.PositiveIntegerField()
     user = models.ForeignKey(User, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return f"{self.locale}"
+
+    def save_hood(self):
+        self.save()
+
+    def delete_hood(self):
+        self.delete()
+
+
+
+
 
 class Business(models.Model):
     name = models.CharField(max_length = 100)
