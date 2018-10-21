@@ -107,7 +107,10 @@ class Post(models.Model):
     def delete_post(self):
         self.delete()
 
-
+    @classmethod
+    def create_post(cls, id):
+        hoods = cls.objects.filter(id=id).create(id=id)
+        return posts
 
 class Comment(models.Model):
     comments = models.CharField(max_length = 500)
