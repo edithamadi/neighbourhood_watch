@@ -18,3 +18,12 @@ class Business(models.Model):
     user = models.ForeignKey(User)
     hood = models.ForeignKey(Neighbourhood,blank=True)
     email = models.CharField(max_length=150)
+
+class Profile(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    first_name = models.CharField(max_length=30)
+    last_name = models.CharField(max_length=30)
+    bio = models.CharField(max_length=200)
+    profile_photo = models.ImageField(upload_to='profile/')
+    hood = models.ForeignKey(Neighbourhood, blank=True, null=True)
+    
