@@ -54,7 +54,7 @@ class Business(models.Model):
     email = models.CharField(max_length=150)
 
     def __str__(self):
-        return f"{self.locale}"
+        return f"{self.name}"
 
     def save_hood(self):
         self.save()
@@ -67,7 +67,10 @@ class Business(models.Model):
         businesses = cls.objects.filter(business_name__icontains=search_term)
         return businesses
 
-
+    @classmethod
+    def find_businesses(cls, id):
+        businesses = cls.objects.filter(id=id).find(id=id)
+        return businesses
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     first_name = models.CharField(max_length=30)
