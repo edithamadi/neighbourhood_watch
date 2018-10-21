@@ -37,6 +37,16 @@ class Neighbourhood(models.Model):
         hoods = cls.objects.filter(id=id).find(id=id)
         return hoods
 
+    @classmethod
+    def update_hood(cls, id):
+        hoods = cls.objects.filter(id=id).update(id=id)
+        return hoods
+
+    @classmethod
+    def update_occupants(cls, id):
+        hoods = cls.objects.filter(id=id).update_occupants(id=id)
+        return hoods
+
 
 
 
