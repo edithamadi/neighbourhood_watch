@@ -9,7 +9,7 @@ Step 1: Clone the repository
 
 Run the following command on the terminal: 
 
-```git clone git@github.com:edithamadi/Awwwards.git```
+```git clone git@github.com:edithamadi/Neighbourhood_watch.git```
 
 Step 2: Enter the Project root folder
 
