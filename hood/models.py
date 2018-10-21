@@ -26,4 +26,10 @@ class Profile(models.Model):
     bio = models.CharField(max_length=200)
     profile_photo = models.ImageField(upload_to='profile/')
     hood = models.ForeignKey(Neighbourhood, blank=True, null=True)
-    
+
+class Post(models.Model):
+
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    description = models.TextField(max_length=350)
+    hood = models.ForeignKey(Neighbourhood, blank=True,on_delete=models.CASCADE)
+    title = models.CharField(max_length = 50)
