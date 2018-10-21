@@ -76,6 +76,13 @@ class Business(models.Model):
     def update_businesses(cls, id):
         businesses = cls.objects.filter(id=id).update(id=id)
         return businesses
+
+    @classmethod
+    def add_businesses(cls, id):
+        businesses = cls.objects.filter(id=id).add(id=id)
+        return businesses
+
+
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     first_name = models.CharField(max_length=30)
@@ -90,6 +97,17 @@ class Post(models.Model):
     description = models.TextField(max_length=350)
     hood = models.ForeignKey(Neighbourhood, blank=True,on_delete=models.CASCADE)
     title = models.CharField(max_length = 50)
+
+    def __str__(self):
+        return self.description
+
+    def save_post(self):
+        self.save()
+
+    def delete_post(self):
+        self.delete()
+
+
 
 class Comment(models.Model):
     comments = models.CharField(max_length = 500)
