@@ -22,6 +22,11 @@ class Neighbourhood(models.Model):
     def delete_hood(self):
         self.delete()
 
+    @classmethod
+    def search_hood(cls , search_term):
+        hoods = cls.objects.filter( name__icontains = search_term ) 
+        return hoods
+
 
 
 
