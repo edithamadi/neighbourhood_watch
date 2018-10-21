@@ -27,6 +27,10 @@ class Neighbourhood(models.Model):
         hoods = cls.objects.filter( name__icontains = search_term ) 
         return hoods
 
+    @classmethod
+    def create_hood(cls, id):
+        hoods = cls.objects.filter(id=id).create(id=id)
+        return hoods
 
 
 
