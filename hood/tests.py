@@ -1,8 +1,7 @@
 from django.test import TestCase
-from .models import Neighbourhood
+from .models import Neighbourhood,Business
 from django.contrib.auth.models import User
 # Create your tests here.
-
 class NeighbourhoodTestClass(TestCase):
     def setUp(self):
         self.new_user = User(id='1', username='adriel',email='adriel@gmail.com')
@@ -30,8 +29,15 @@ class NeighbourhoodTestClass(TestCase):
         hoods = Neighbourhood.objects.get(name='mbuzi')
         self.assertTrue(hoods.name, 'mbuzi')
 
+class BusinessTestClass(TestCase):
+    def setUp(self):
+        self.user = User.objects.create(id =1, username='b')
+        self.Nairobi = Neighbourhood(name='nyati', locale='Nairobi', user=self.user, occupants=5)
+        self.Nairobi.save_hood()
+        self.biz = Business(name="biznaa", email="adriel@gmail.com", user=self.user, hood=self.Nairobi)
 
-    
+    def test_instance(self):
+        self.assertTrue(isinstance(self.biz,Business))
 
     
 
