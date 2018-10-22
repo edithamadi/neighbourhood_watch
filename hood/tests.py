@@ -13,16 +13,23 @@ class NeighbourhoodTestClass(TestCase):
     def test_instance(self):
         self.assertTrue(isinstance(self.Nairobi,Neighbourhood))
         
-    def test_save_method(self):
+    def test_save_hood(self):
 
         self.Nairobi.save_hood()
         hoods = Neighbourhood.objects.all()
         self.assertTrue(len(hoods) > 0)
 
-    def test_delete_method(self):
+    def test_delete_hood(self):
 
         self.Nairobi.save_hood()
-        self.Nairobi.delete_hood
+        self.Nairobi.delete_hood()
+
+    def test_update_hood(self):
+    
+        new_hood = Neighbourhood.objects.filter(name='nyati').update(name='mbuzi')
+        hoods = Neighbourhood.objects.get(name='mbuzi')
+        self.assertTrue(hoods.name, 'mbuzi')
+
 
     
 
