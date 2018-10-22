@@ -13,3 +13,16 @@ class NeighbourhoodTestClass(TestCase):
     def test_instance(self):
         self.assertTrue(isinstance(self.Nairobi,Neighbourhood))
         
+    def test_save_method(self):
+
+        self.Nairobi.save_hood()
+        hoods = Neighbourhood.objects.all()
+        self.assertTrue(len(hoods) > 0)
+
+    
+
+    
+
+    
+
+
