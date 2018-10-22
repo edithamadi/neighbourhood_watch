@@ -53,10 +53,10 @@ class Business(models.Model):
     def __str__(self):
         return f"{self.name}"
 
-    def save_hood(self):
+    def save_business(self):
         self.save()
 
-    def delete_hood(self):
+    def delete_business(self):
         self.delete()
 
     @classmethod
