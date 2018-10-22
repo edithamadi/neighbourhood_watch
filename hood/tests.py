@@ -19,6 +19,11 @@ class NeighbourhoodTestClass(TestCase):
         hoods = Neighbourhood.objects.all()
         self.assertTrue(len(hoods) > 0)
 
+    def test_delete_method(self):
+
+        self.Nairobi.save_hood()
+        self.Nairobi.delete_hood
+
     
 
     
