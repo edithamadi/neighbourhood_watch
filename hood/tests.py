@@ -39,6 +39,11 @@ class BusinessTestClass(TestCase):
     def test_instance(self):
         self.assertTrue(isinstance(self.biz,Business))
 
+    def test_save_hood(self):
+
+        self.biz.save_hood()
+        businesses = Business.objects.all()
+        self.assertTrue(len(businesses) > 0)
     
 
     
