@@ -49,7 +49,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'hoodapp.apps.HoodappConfig',
+    'hood.apps.HoodConfig',
     'bootstrap3',
     'bootstrap4',
 ]
