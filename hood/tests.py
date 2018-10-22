@@ -50,9 +50,6 @@ class BusinessTestClass(TestCase):
         self.biz.save_business()
         self.biz.delete_business()
 
-    
-    
 
     
-
-
+        
