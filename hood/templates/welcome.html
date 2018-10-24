@@ -1,3 +1,28 @@
 {% extends 'all-hood/base.html' %}
 
-<h1> Welcome to neighbourhood watch</h1>
+{% block content %} 
+
+
+<h2><i> Without a sense of caring, there can be no sense of community</i></h2>
+
+    <div class="row">
+        {% for hood in hoods %}
+
+        <div class="col-md-4   ">
+            <div class="container-fluid">
+                    <div class="col-md-4   ">
+                            <div class="container-fluid">
+                {{hood.name}}<br><br>
+                {{hood.occupants}} &nbsp; Occupants <br><br>
+                <!-- {{hood.choices}} -->
+                <a href=" {% url 'join' hood.id %}" class="btn btn-sm btn-info">Join Neighbourhood</a>
+            </div>
+          </div>
+        </div>
+     
+        {% endfor %}
+      </div>
+     </div>
+     {% endblock %}
+     
+

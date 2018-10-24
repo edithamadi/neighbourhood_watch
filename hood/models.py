@@ -16,13 +16,19 @@ class Neighbourhood(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
 
     def __str__(self):
-        return f"{self.locale}"
+        return f"{self.name}"
 
     def save_hood(self):
         self.save()
 
     def delete_hood(self):
         self.delete()
+
+    @classmethod
+    def display_hood(cls):
+        hoods = cls.objects.all() 
+        return hoods
+
 
     @classmethod
     def search_hood(cls , search_term):
@@ -146,4 +152,10 @@ class category(models.Model):
 
     def delete_category(self):
         self.delete()
-    
+        
+class Join(models.Model):
+    user_id = models.OneToOneField(User)
+    hood_id = models.ForeignKey(Neighbourhood)
+
+    def __str__(self):
+        return self.user_id
